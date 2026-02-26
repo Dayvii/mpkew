@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – MyApp</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">MyApp</div>
+    <div class="nav-links">
+      <span>Hi, <%= user.name %>!</span>
+      <form action="/auth/logout" method="POST" style="display:inline">
+        <button type="submit" class="btn btn-outline">Log out</button>
+      </form>
+    </div>
+  </nav>
+
+  <main class="dashboard">
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+      <p>Welcome back, <strong><%= user.name %></strong>. You're logged in as <em><%= user.email %></em>.</p>
+    </div>
+
+    <div class="dashboard-cards">
+      <div class="card">
+        <h3>Account Info</h3>
+        <p><strong>Name:</strong> <%= user.name %></p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <p><strong>Member since:</strong> <%= new Date(user.createdAt).toLocaleDateString() %></p>
+      </div>
+      <div class="card">
+        <h3>Getting Started</h3>
+        <p>This is your dashboard. Start building your features here!</p>
+        <p>Edit <code>src/routes/dashboard.js</code> and <code>src/views/dashboard/index.ejs</code> to add your own functionality.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Web App</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">MyApp</div>
+    <div class="nav-links">
+      <% if (user) { %>
+        <a href="/dashboard">Dashboard</a>
+        <form action="/auth/logout" method="POST" style="display:inline">
+          <button type="submit" class="btn btn-outline">Log out</button>
+        </form>
+      <% } else { %>
+        <a href="/auth/login">Log in</a>
+        <a href="/auth/register" class="btn btn-primary">Sign up</a>
+      <% } %>
+    </div>
+  </nav>
+
+  <main class="hero">
+    <h1>Welcome to MyApp</h1>
+    <p>A Node.js web app with user accounts, built with Express & PostgreSQL.</p>
+    <% if (!user) { %>
+      <div class="hero-actions">
+        <a href="/auth/register" class="btn btn-primary btn-lg">Get started</a>
+        <a href="/auth/login" class="btn btn-outline btn-lg">Log in</a>
+      </div>
+    <% } else { %>
+      <a href="/dashboard" class="btn btn-primary btn-lg">Go to dashboard →</a>
+    <% } %>
+  </main>
+</body>
+</html>

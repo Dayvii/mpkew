@@ -4,10 +4,11 @@
   "description": "World of Warcraft Mythic+ Queue",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "postinstall": "prisma generate",
+    "start": "npx prisma migrate deploy && node src/index.js",
     "db:migrate": "prisma migrate dev",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
     "@prisma/client": "^5.10.0",

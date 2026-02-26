@@ -1,7 +1,7 @@
 {
-  "name": "my-webapp",
+  "name": "MPKew",
   "version": "1.0.0",
-  "description": "Node.js web app with user accounts",
+  "description": "World of Warcraft Mythic+ Queue",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
